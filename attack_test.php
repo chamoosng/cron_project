@@ -13,23 +13,6 @@ $urls = [
   'https://this.is.dummy.site.co.jp/'
 ];
 
-// function check_html_body(string $url)
-// {
-//   // $body = file_get_contents($url);
-//   $ch = curl_init();
-//   curl_setopt($ch, CURLOPT_HEADER, 1);
-//   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-//   curl_setopt($ch, CURLOPT_URL, $url);
-//   $body = curl_exec($ch);
-//   curl_close($ch);
-
-//   echo strlen($body) . " " .$url . " " . PHP_EOL;
-
-
-//   return strlen($body) > 100 ? true : false;
-
-// }
 /**
  * @param $url 
  * 
@@ -65,7 +48,7 @@ function get_urls_warining_html_body(array $urls): array
 function send_email_warning_urls(array $urls): void
 {
   $body = "";
-  $body .= email_template(get_urls_warining_html_body($urls), 'htmlのコードが100ライン以下です。');
+  $body .= email_template(get_urls_warining_html_body($urls), 'htmlのボリュームが非常に低いです。ご確認申し上げます。');
 
   if ( ! empty($body)) {
 
