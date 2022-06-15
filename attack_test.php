@@ -10,7 +10,7 @@ $urls = [
   'https://xn--sms-rm0et401a.com/',
   'https://xn--hetw09e0b157h.com/',
   'https://www.netfax.jp/smp/',
-  'https://this.is.dummy.site.co.jp/'
+  // 'https://this.is.dummy.site.co.jp/'
 ];
 
 /**
