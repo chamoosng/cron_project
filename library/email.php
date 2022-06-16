@@ -11,11 +11,11 @@ function sendMail(string $body): void
     //Gmail 認証情報
     $host = 'smtp.gmail.com';
     $username = 'chamoosong@gmail.com'; // example@gmail.com
-    $password = '';
+    $password = 'fwolnpcdqjhmgihu';
   
     //差出人
-    $from = 'chamoosong@netreal.co.jp';
-    $fromname = 'chamoosong@netreal.co.jp';
+    $from = 'moosong@netreal.co.jp';
+    $fromname = 'moosong@netreal.co.jp';
   
     //宛先
     $to = 'zpunsss@gmail.com';
