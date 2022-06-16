@@ -14,8 +14,8 @@ function sendMail(string $body): void
     $password = '';
   
     //差出人
-    $from = 'chamoosong@gmail.com';
-    $fromname = 'chamoosong@gmail.com';
+    $from = 'moosong@netreal.co.jp';
+    $fromname = 'moosong@netreal.co.jp';
   
     //宛先
     $to = 'zpunsss@gmail.com';
@@ -45,10 +45,11 @@ function sendMail(string $body): void
 
     //メール送信
     $mail->send();
-    echo '成功';
   
   } catch (Exception $e) {
-    echo '失敗: ', $mail->ErrorInfo;
+
+    error_log(PHP_EOL . date("Y-m-d H:i:s") . " : " . $mail->ErrorInfo . PHP_EOL, 3, './log/error.log');
+
   }
 }
 

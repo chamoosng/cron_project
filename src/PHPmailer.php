@@ -68,7 +68,7 @@ class PHPMailer
      * @var int|null
      */
     public $Priority;
-
+    
     /**
      * The character set of the message.
      *

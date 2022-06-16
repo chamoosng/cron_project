@@ -10,7 +10,7 @@ $urls = [
   'https://xn--sms-rm0et401a.com/',
   'https://xn--hetw09e0b157h.com/',
   'https://www.netfax.jp/smp/',
-  // 'https://this.is.dummy.site.co.jp/'
+  'https://this.is.dummy.site.co.jp/'
 ];
 
 /**
@@ -18,7 +18,7 @@ $urls = [
  * 
  * @return bool htmlのコードが１００以下ならtrue
  */
-function check_html_body_length(string $url): bool
+function check_html_volume(string $url): bool
 {
   $context = stream_context_create([
     'ssl' => [
@@ -27,9 +27,9 @@ function check_html_body_length(string $url): bool
     ]
   ]);
 
-  $body = file_get_contents($url, false, $context);
+  $html = file_get_contents($url, false, $context);
 
-  return strlen($body) < 100 ? true : false;
+  return strlen($html) < 100 ? true : false;
 }
 
 /**
@@ -39,7 +39,7 @@ function check_html_body_length(string $url): bool
  */
 function get_urls_warining_html_body(array $urls): array
 {
-  return array_filter($urls, 'check_html_body_length');
+  return array_filter($urls, 'check_html_volume');
 }
 
 /**
@@ -48,11 +48,11 @@ function get_urls_warining_html_body(array $urls): array
 function send_email_warning_urls(array $urls): void
 {
   $body = "";
-  $body .= email_template(get_urls_warining_html_body($urls), 'htmlのボリュームが非常に低いです。ご確認申し上げます。');
+  $body .= email_template(get_urls_warining_html_body($urls), 'htmlのボリュームが非常に低いです。ご確認お願い申し上げます。');
 
   if ( ! empty($body)) {
-
-    error_log($body . PHP_EOL, 3, './test.log');
+    
+    error_log(PHP_EOL .date("Y-m-d H:i:s") . " : " . $body . PHP_EOL, 3, './log/log.log');
     sendMail($body);
   }
 }
