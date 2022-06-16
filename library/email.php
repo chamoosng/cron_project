@@ -48,7 +48,7 @@ function sendMail(string $body): void
   
   } catch (Exception $e) {
 
-    error_log($mail->ErrorInfo . PHP_EOL, 3, './log/error.log');
+    error_log(PHP_EOL . date("Y-m-d H:i:s") . " : " . $mail->ErrorInfo . PHP_EOL, 3, './log/error.log');
 
   }
 }

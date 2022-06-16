@@ -52,7 +52,7 @@ function send_email_warning_urls(array $urls): void
 
   if ( ! empty($body)) {
     
-    error_log($body . PHP_EOL, 3, './log/log.log');
+    error_log(PHP_EOL .date("Y-m-d H:i:s") . " : " . $body . PHP_EOL, 3, './log/log.log');
     sendMail($body);
   }
 }
