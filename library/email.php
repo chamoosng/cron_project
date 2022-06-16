@@ -11,7 +11,7 @@ function sendMail(string $body): void
     //Gmail 認証情報
     $host = 'smtp.gmail.com';
     $username = 'chamoosong@gmail.com'; // example@gmail.com
-    $password = 'fwolnpcdqjhmgihu';
+    $password = '';
   
     //差出人
     $from = 'moosong@netreal.co.jp';
